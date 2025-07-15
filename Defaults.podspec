@@ -24,20 +24,27 @@ Pod::Spec.new do |s|
   end
 
   # Macros plugin (compiler plugin)
-  s.subspec 'Macros' do |m|
-    m.source_files     = 'Sources/DefaultsMacrosDeclarations/**/*.{swift}'
-    m.source_files    += 'Sources/DefaultsMacros/**/*.{swift}'
-    m.dependency       'Defaults/Core'
-    m.dependency       'SwiftSyntax', '>= 601.0.0'
+    s.subspec 'Macros' do |m|
+    m.source_files = [
+      'Sources/DefaultsMacrosDeclarations/**/*.{swift}',
+      'Sources/DefaultsMacros/**/*.{swift}'
+    ]
+    m.dependency 'Defaults/Core'
+    m.dependency 'SwiftSyntax', '>= 601.0.0'
   end
+
 
   # Unit tests (optional; CocoaPods Tests have limited support)
   # You can run these locally if you `pod install --project-directory=Tests`.
-  s.subspec 'Tests' do |t|
-    t.source_files     = 'Tests/DefaultsTests/**/*.{swift}'
-    t.source_files    += 'Tests/DefaultsMacrosDeclarationsTests/**/*.{swift}'
-    t.source_files    += 'Tests/DefaultsMacrosTests/**/*.{swift}'
-    t.dependency       'Defaults/Core'
-    t.dependency       'Defaults/Macros'
+    s.subspec 'Tests' do |t|
+    t.source_files = [
+      'Tests/DefaultsTests/**/*.{swift}',
+      'Tests/DefaultsMacrosDeclarationsTests/**/*.{swift}',
+      'Tests/DefaultsMacrosTests/**/*.{swift}'
+    ]
+    t.dependency 'Defaults/Core'
+    t.dependency 'Defaults/Macros'
   end
+
+
 end
